@@ -8,11 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #faf7f5;
@@ -25,24 +21,17 @@
       --border: #edd8df;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       font-family: 'Jost', sans-serif;
       color: var(--text);
-      -webkit-font-smoothing: antialiased;
     }
-
-    /* NAV */
 
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       display: flex;
       justify-content: space-between;
@@ -64,8 +53,6 @@
       background: var(--pink);
     }
 
-    /* HERO */
-
     .hero {
       min-height: 100vh;
       display: grid;
@@ -79,15 +66,14 @@
     .hero::after {
       content: '';
       position: absolute;
-      right: 0;
-      top: 0;
+      right: 0; top: 0;
       width: 45%;
       height: 100%;
       background: var(--pink-light);
       z-index: 0;
     }
 
-    .hero-text {
+    .hero-text, .hero-image {
       position: relative;
       z-index: 1;
     }
@@ -124,11 +110,6 @@
       padding-left: 20px;
     }
 
-    .hero-image {
-      position: relative;
-      z-index: 1;
-    }
-
     .hero-image img {
       width: 100%;
       height: 580px;
@@ -146,7 +127,10 @@
       text-align: right;
     }
 
-    /* SECTION */
+    .gallery {
+      padding: 100px 80px;
+      background: var(--surface);
+    }
 
     .section-label {
       display: flex;
@@ -170,45 +154,26 @@
       background: var(--border);
     }
 
-    /* GALLERY */
-
-    .gallery {
-      padding: 100px 80px;
-      background: var(--surface);
-    }
-
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      grid-template-rows: auto auto;
-      gap: 2px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
     .gallery-item {
       overflow: hidden;
       position: relative;
-    }
-
-    .gallery-item:nth-child(1) {
-      grid-row: 1 / 3;
+      border-radius: 4px;
+      min-height: 420px;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
+      min-height: 420px;
       object-fit: cover;
       display: block;
-      min-height: 300px;
       transition: transform 0.7s cubic-bezier(.23,1,.32,1);
-    }
-
-    .gallery-item:nth-child(1) img {
-      min-height: 640px;
-    }
-
-    .gallery-item:nth-child(2) img,
-    .gallery-item:nth-child(3) img {
-      min-height: 318px;
     }
 
     .gallery-item:hover img {
@@ -218,7 +183,7 @@
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(26,16,20,0.35) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(26,16,20,0.35), transparent 55%);
       opacity: 0;
       transition: opacity 0.4s;
       display: flex;
@@ -237,8 +202,6 @@
       font-size: 1.1rem;
     }
 
-    /* QUOTE */
-
     .quote-section {
       padding: 120px 80px;
       display: grid;
@@ -253,7 +216,6 @@
       font-size: 8rem;
       line-height: 1;
       color: var(--pink);
-      font-weight: 400;
       opacity: 0.6;
     }
 
@@ -262,7 +224,6 @@
       font-style: italic;
       font-size: clamp(1.4rem, 2.5vw, 2rem);
       line-height: 1.6;
-      color: var(--text);
       margin-bottom: 28px;
     }
 
@@ -272,8 +233,6 @@
       text-transform: uppercase;
       color: var(--pink-dark);
     }
-
-    /* FOOTER */
 
     footer {
       padding: 60px 80px;
@@ -297,8 +256,6 @@
       color: var(--pink);
     }
 
-    /* ANIMATION */
-
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -310,13 +267,8 @@
       transform: none;
     }
 
-    /* RESPONSIVE */
-
     @media (max-width: 768px) {
-
-      nav {
-        padding: 20px 24px;
-      }
+      nav { padding: 20px 24px; }
 
       .hero {
         grid-template-columns: 1fr;
@@ -324,9 +276,7 @@
         gap: 40px;
       }
 
-      .hero::after {
-        display: none;
-      }
+      .hero::after { display: none; }
 
       .hero-image img {
         height: 420px;
@@ -340,12 +290,8 @@
         grid-template-columns: 1fr;
       }
 
-      .gallery-item:nth-child(1) {
-        grid-row: auto;
-      }
-
-      .gallery-item img,
-      .gallery-item:nth-child(1) img {
+      .gallery-item,
+      .gallery-item img {
         min-height: 320px;
       }
 
@@ -376,10 +322,7 @@
     <div class="nav-line"></div>
   </nav>
 
-  <!-- HERO -->
-
   <section class="hero">
-
     <div class="hero-text reveal">
       <p class="hero-eyebrow">For someone special</p>
 
@@ -396,79 +339,45 @@
     </div>
 
     <div class="hero-image reveal" style="transition-delay:0.2s">
-
-      <!-- FIX DISINI -->
       <img src="foto1.jpg" alt="Bila">
-
       <p class="hero-image-caption">Bila — 2026</p>
     </div>
-
   </section>
 
-  <!-- GALLERY -->
-
   <section class="gallery">
-
     <div class="section-label reveal">
       <span>Koleksi Foto</span>
     </div>
 
     <div class="gallery-grid">
-
       <div class="gallery-item reveal">
-
-        <!-- FIX DISINI -->
         <img src="foto2.jpg" alt="Bila">
-
         <div class="gallery-overlay">
           <span class="gallery-overlay-text">Cantik seperti biasa</span>
         </div>
       </div>
 
       <div class="gallery-item reveal" style="transition-delay:0.15s">
-
-        <!-- FIX DISINI -->
         <img src="foto3.jpg" alt="Bila">
-
         <div class="gallery-overlay">
           <span class="gallery-overlay-text">Senyum favoritku</span>
         </div>
       </div>
-
-      <div class="gallery-item reveal" style="transition-delay:0.25s">
-
-        <!-- FIX DISINI -->
-        <img src="foto3.jpg" alt="Bila">
-
-        <div class="gallery-overlay">
-          <span class="gallery-overlay-text">Selalu bercahaya</span>
-        </div>
-      </div>
-
     </div>
-
   </section>
 
-  <!-- QUOTE -->
-
   <section class="quote-section">
-
     <div class="quote-number reveal">01</div>
 
     <div class="reveal" style="transition-delay:0.15s">
-
       <p class="quote-body">
         "Kamu bukan hanya orang yang aku pilih —
         kamu adalah alasan aku bersyukur bisa memilih."
       </p>
 
       <p class="quote-attr">— Untukmu, selalu</p>
-
     </div>
-
   </section>
-
-  <!-- FOOTER -->
 
   <footer>
     <span class="footer-name">Princess Bila</span>
@@ -476,7 +385,6 @@
   </footer>
 
   <script>
-
     const reveals = document.querySelectorAll('.reveal');
 
     const obs = new IntersectionObserver((entries) => {
@@ -486,12 +394,9 @@
           obs.unobserve(e.target);
         }
       });
-    }, {
-      threshold: 0.12
-    });
+    }, { threshold: 0.12 });
 
     reveals.forEach(el => obs.observe(el));
-
   </script>
 
 </body>
